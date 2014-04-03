@@ -8,6 +8,7 @@ int dotX = 2;
 int dotY = 2;
 int goalX = random(8);
 int goalY = random(8);
+int wallX = 
 
 void loop(){
   DrawPx(dotX, dotY, 1);
@@ -31,20 +32,20 @@ void loop(){
     dotX = 0;
   
   DisplaySlate();
-  delay(100);
+  delay(50);
   ClearSlate();
 
-  DrawPx(goalX, goalY, 5);
+  DrawPx(goalX, goalY, 5);                  //Draws blue dot
   DisplaySlate();
   
-  if (dotX == goalX && dotY == goalY){
+  if (dotX == goalX && dotY == goalY){      //When red dot touches blue dot, the blue dot is reset
    Tone_Start(ToneC3, 100);
    ClearSlate();
    delay(100);
    do{
      goalX = random(8);
    }
-   while (dotX == goalY);
+   while (dotX == goalX);
   do {
     goalY = random(8);
   }
